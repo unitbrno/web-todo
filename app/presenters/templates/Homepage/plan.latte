@@ -1,0 +1,64 @@
+{block content}
+
+<div class="sidebar-top">
+    <div class="sidebar-button"><a n:href="Homepage:" class="ajax" data-toggle="tooltip" title="Vyhledávání" ><i class="fas fa-search fa-3x meny"></i></a></div>
+    <div class="sidebar-button"><a n:href="Homepage:plan" class="ajax" data-toggle="tooltip" title="Plánovač" ><i class="fas fa-level-up-alt fa-3x meny" data-fa-transform="flip-v"></i></a></div>
+    <div class="sidebar-button"><a n:href="Homepage:mybag" class="ajax" data-toggle="tooltip" title="Uložené trasy" ><i class="far fa-bookmark fa-3x meny"></i></a></div>
+    </div>
+</div>
+
+<div class="list-unstyled">
+
+    <ul class="components">
+        <li>
+            <div class="finish-bar">
+                <p>Plánování trasy</p>
+            </div>
+        </li>
+        <li>
+            <div class="finish-bar">
+                <p>Celkem {$totalDistance|metersToReadable} za {$totalTime|secondsToReadable}</p>
+            </div>
+        </li>
+        {snippet planner}
+            {var $index = 0}
+            <div class="ready-to-add">
+                {foreach $planner as $plan}
+                    <div class="planner-place">
+                        {$plan[0]}
+                    </div>
+                    {if !$iterator->last}
+                        <div class="planner-route">
+                            {$plan[3]|metersToReadable} ({$plan[4]|secondsToReadable} {$plan[5]})
+                            <img onclick="changeRoute({$index}, 'pesky')" src="{$basePath}/images/pesky.png">
+                            <img onclick="changeRoute({$index}, 'autem')" src="{$basePath}/images/autem.png">
+                            <img onclick="changeRoute({$index}, 'MHD')" src="{$basePath}/images/mhd.png">
+                        </div>
+                    {/if}
+                    {var $index = $index + 1}
+                {/foreach}
+            </div>
+        {/snippet}
+
+        <li>
+            <div id="dylytko" class="another-button">
+                <a n:href="addPoint!" class="ajax btn btn-primary btn-block another-button-butt">
+                    <span><i class="fas fa-minus"></i></span></a>
+            </div>
+        </li>
+        <li>
+
+            <div class="another-button">
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-danger " onclick="cancelPlanner();">Zrušit</button>
+                    <button type="button" class="btn btn-secondary " onclick="bodMapa();" id="zMapy">Bod z mapy</button>
+                </div>
+            </div>
+
+            <div class="another-button">
+                <button type="button" class="btn btn-primary btn-block another-button-butt">Uložit</button>
+            </div>
+        </li>
+    </ul>
+
+</div>
