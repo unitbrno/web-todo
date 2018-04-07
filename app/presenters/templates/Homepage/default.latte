@@ -1,0 +1,39 @@
+{block content}
+
+<div class="sidebar-top">
+    <div class="sidebar-button"><a n:href="Homepage:" class="ajax" data-toggle="tooltip" title="Vyhledávání" ><i class="fas fa-search fa-3x meny"></i></a></div>
+    <div class="sidebar-button"><a n:href="Homepage:plan" class="ajax" data-toggle="tooltip" title="Plánovač" ><i class="fas fa-level-up-alt fa-3x meny" data-fa-transform="flip-v"></i></a></div>
+    <div class="sidebar-button"><a n:href="Homepage:mybag" class="ajax" data-toggle="tooltip" title="Uložené trasy" ><i class="far fa-bookmark fa-3x meny"></i></a></div>
+</div>
+
+<div class="list-unstyled">
+
+
+<ul class="components">
+
+    <div class="map-filters">
+        <div id="restaurant" class="map-filters-button" data-toggle="restaurant" title="Restaurace" onclick="restaurantClicked()"><i class="fas fa-utensils fa-lg"></i></div>
+        <div id="mhd" class="map-filters-button" data-toggle="mhd" title="MHD" onclick="mhdClicked()"><i class="fas fa-bus fa-lg"></i></div>
+        <div id="place" class="map-filters-button" data-toggle="place" title="Zajímavá místa" onclick="placeClicked()"><i class="fas fa-map-marker fa-lg"></i></div>
+        <div id="fun" class="map-filters-button" data-toggle="fun" title="Zábava" onclick="funClicked()"><i class="fas fa-glass-martini fa-lg"></i></div>
+        <div id="shop" class="map-filters-button" data-toggle="shop" title="Nákupy" onclick="shopClicked()"><i class="fas fa-shopping-basket fa-lg"></i></div>
+    </div>
+
+    <div class="search-bar">
+        <p><img src="{$basePath}/images/search-bar.png"></p>
+    </div>
+    <li>
+        <a href="#">Nejbližší restaurace</a>
+        <a href="#">Nejbližší zastávka MHD</a>
+        {if ($user->isLoggedIn())}
+            <p class="sidebar-text">Rychlé vehledávání</p>
+        <a href="#">Domů</a>
+        <a href="#">Do školy</a>
+        <a href="#">Na kebab</a>
+        {/if}
+</ul>
+
+<ul class="list-unstyled CTAs">
+</ul>
+
+</div>

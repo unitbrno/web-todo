@@ -1,2 +1,3 @@
-# web-todo
-Repozitář týmu //TODO na soutěži UnIT Brno 2018
+# unit-todo
+Nejlepsi appka :*
+// tohle napsal Martin
